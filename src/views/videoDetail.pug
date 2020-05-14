@@ -1,0 +1,106 @@
+extends layouts/main
+include mixins/videoPlayer
+
+block content
+    .video-detail__container
+        +videoPlayer({
+            src:video.fileUrl
+        })
+        .video__info
+            //- #{console.log(loggedUser)}
+            if loggedUser && user._id === loggedUser.id
+                a(href=routes.editVideo(video.id))
+                    button Edit video
+            h5.video__title=video.title
+            
+            .video__likey#jsAddLikey
+                //- button
+                if expressed
+                    i.fas.fa-thumbs-up#isLikey
+                else
+                    i.far.fa-thumbs-up#isLikey
+                if  current_video_likeys
+                    span.video__likey_number#jsLikeyNumber #{current_video_likeys.length}
+                else
+                    span.video__likey_number#jsLikeyNumber 0
+                    
+            p.video__description=video.description
+            if video.views === 1 
+                span.video__views 1 view
+            else 
+                span.video__views #{video.views} views
+            .video__author
+                |Uploaded by 
+                a(href=routes.userDetail(user._id))=user.name
+            
+            .video__converter
+                form.video__converter__form(action=`${routes.converter(video._id)}`, method="post")
+                    select.video__converter__form__select(name="select_character")
+                        option.video__converter__form__select__option(value="None") 선택
+                        option.video__converter__form__select__option(value="Mei") Mei
+                        
+                        option.video__converter__form__select__option(value="Aristoteles") Aristoteles
+                        option.video__converter__form__select__option(value="Ashe") Ashe
+                        option.video__converter__form__select__option(value="Ball") Ball
+
+                        option.video__converter__form__select__option(value="BearDoll1") BearDoll1
+                        option.video__converter__form__select__option(value="BearDoll2") BearDoll2
+                        option.video__converter__form__select__option(value="Buzz") Buzz
+                        option.video__converter__form__select__option(value="Chucky") Chucky
+                        option.video__converter__form__select__option(value="Churchill") Churchill
+
+                        option.video__converter__form__select__option(value="D.va") D.va
+                        option.video__converter__form__select__option(value="Hanzo") Hanzo
+                        option.video__converter__form__select__option(value="Junkrat") Junkrat
+                        option.video__converter__form__select__option(value="Lucio") Lucio
+                        option.video__converter__form__select__option(value="Mccree") Mccree
+
+                        option.video__converter__form__select__option(value="Mei2") Mei presdent
+                        option.video__converter__form__select__option(value="Monalisa") Monalisa
+                        option.video__converter__form__select__option(value="Parah") Parah
+                        option.video__converter__form__select__option(value="Poo") Poo
+                        option.video__converter__form__select__option(value="Putin") Putin
+
+                        option.video__converter__form__select__option(value="Reaper") Reaper
+                        option.video__converter__form__select__option(value="Rein") Rein
+                        option.video__converter__form__select__option(value="Saltama") Saltama
+                        option.video__converter__form__select__option(value="Shrek") Shrek
+                        option.video__converter__form__select__option(value="Sigma") Sigma
+
+                        option.video__converter__form__select__option(value="Soldier76") Soldier76
+                        option.video__converter__form__select__option(value="SpongeBob") SpongeBob
+                        option.video__converter__form__select__option(value="Torbjoun") Torbjoun
+                        option.video__converter__form__select__option(value="Tracer") Tracer
+                        option.video__converter__form__select__option(value="Widowmaker") Widowmaker
+
+                        option.video__converter__form__select__option(value="Winston") Winston
+                        option.video__converter__form__select__option(value="Woody") Woody
+                    input.video__converter__form__input(type="submit", value="Convert")
+
+            .video__delete
+                form(action=`${routes.deleteVideo(video.id)}`, method="post")
+                    button(type="submit",name="delete") Delete
+                    
+        .video__comments
+            if current_video_comments
+                if current_video_comments.length === 1
+                    span.video__comment-number
+                        span#jsCommentNumber 1
+                        |  comment
+                else
+                    span.video__comment-number
+                        span#jsCommentNumber=current_video_comments.length
+                        |  comments
+            form.add__comment#jsAddComment
+                input(type="text", placeholder="Add a comment")
+            ul.video__comments-list#jsCommentList
+                if current_video_comments
+                    each comment in current_video_comments.reverse()
+                        if comment.creator == user._id    
+                            li
+                                span=comment.text
+                        else
+                            .video__comments-list-other
+                                li
+                                    span=comment.text
+                            
