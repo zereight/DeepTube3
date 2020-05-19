@@ -151,20 +151,21 @@ export const deleteVideo = async (req, res) => {
     Bucket: `${process.env.BUCKET_NAME}/video`,
     Key: delFileName
   }
-  await s3.deleteObject(params, function(err, data) {
-    if (err) {
-      console.log('aws video delete error')
-      console.log(err, err.stack)
-      res.redirect(routes.home)
-    } else {
-      console.log('aws video delete success' + data)
-    }
-  })
 
+  console.log(String(video.creator));
+  console.log(String(req.user._id));
     if (String(video.creator) !== String(req.user._id)) {
-      throw Error();
+      throw Error("삭제할 권한이 없습니다.");
     } else {
-
+      await s3.deleteObject(params, function(err, data) {
+        if (err) {
+          console.log('aws video delete error')
+          console.log(err, err.stack)
+          res.redirect(routes.home)
+        } else {
+          console.log('aws video delete success' + data)
+        }
+      })
       // On delete cascade
       await Comment.remove({ video: id }, (err) => {if(err){throw Error();}});
       await Likey.remove({ video: id }, (err) => {if(err){throw Error();}});

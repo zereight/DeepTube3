@@ -29,7 +29,7 @@ const stopRecording = () => {
 const startRecording = () => {
   videoRecorder = new MediaRecorder(streamObject);
   videoRecorder.start();
-  recordBtn.innerHTML = "Stop recording";
+  recordBtn.innerHTML = "녹화하기";
   videoRecorder.addEventListener("dataavailable", handleVideoData); // data가 available하면 함수실행
   recordBtn.addEventListener("click", stopRecording);
 };
@@ -43,11 +43,12 @@ const getVideo = async () => {
     videoPreview.srcObject = stream;
     videoPreview.muted = true;
     videoPreview.play();
-    recordBtn.innerHTML = "Stop recording";
+    recordBtn.innerHTML = "녹화 멈추기";
     streamObject = stream;
     startRecording();
   } catch (error) {
-    recordBtn.innerHTML = "😥 Can't record";
+    console.log(error);
+    recordBtn.innerHTML = "😥 https에서만 지원을 하여 삭제될 기능입니다.";
   } finally {
     recordBtn.removeEventListener("click", getVideo);
   }
