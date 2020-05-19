@@ -56,7 +56,7 @@ export const videoDetail = async (req, res) => {
 
   try {
     const video = await Video.findById(id);
-    
+    const video_creator = await User.findById(video.creator);
     const current_video_comments = await Comment.find({
       video: id
     });
@@ -66,7 +66,7 @@ export const videoDetail = async (req, res) => {
     });
     let expressed = (await Likey.findOne({video: id, creator:user._id})) ? true : false;
 
-    res.render("videoDetail", { pageTitle: video.title, video, expressed, current_video_likeys, user, current_video_comments });
+    res.render("videoDetail", { pageTitle: video.title, video, expressed, current_video_likeys, user:video_creator, current_video_comments });
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);
