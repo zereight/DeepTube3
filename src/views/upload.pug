@@ -4,7 +4,7 @@ block content
     .form-container
         .record-container#jsRecordContainer
             video#jsVideoPreview
-            button#jsRecordBtn Start Recording
+            button#jsRecordBtn 녹화하기
         form(action=`/videos${routes.upload}`, method='post', enctype="multipart/form-data")
             label(for='file') Video File
             input(type='file', name='videoFile', id='file', required=true, accept="video/*")

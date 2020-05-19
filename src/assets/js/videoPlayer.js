@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 import getBlobDuration from "get-blob-duration"; // 이거 설치하면 npm install @babel/runtime --save 도 해주기.
+// import { getVideoDurationInSeconds } from 'get-video-duration';
 
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
@@ -96,12 +97,19 @@ AWS bucket에 CORS구성에
 로해서 누구나 파일을 다운로드 받을 수 있도록해주기
 */
 async function setTotalTime() {
+  
   const blob = await fetch(videoPlayer.src).then(res => res.blob()); // 가상으로 파일 다운로드
   const duration = await getBlobDuration(blob); // 그 파일의 실제 duration받아와서 Nan버그 없앰
   // console.log(videoPlayer.duration);
-  const totalTimeString = formatDate(duration);
-  totalTime.innerHTML = totalTimeString;
-  setInterval(getCurrentTime, 1000);
+//   getVideoDurationInSeconds(videoPlayer.src).then((duration) => {
+//     const totalTimeString = formatDate(duration);
+//     totalTime.innerHTML = totalTimeString;
+//     setInterval(getCurrentTime, 1000);
+// })
+  
+const totalTimeString = formatDate(duration);
+    totalTime.innerHTML = totalTimeString;
+    setInterval(getCurrentTime, 1000);
 }
 
 const registerView = () => {
@@ -134,10 +142,10 @@ function init() {
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumeClick);
   fullScrnBtn.addEventListener("click", goFullScreen);
-  // videoPlayer.addEventListener("focus", setTotalTime);
-  setTotalTime();
+  // videoPlayer.addEventListener("loadedmetadata", setTotalTime);
   videoPlayer.addEventListener("ended", handleEnded);
   volumeRange.addEventListener("input", handleDrag);
+  setTotalTime();
 }
 
 if (videoContainer) {

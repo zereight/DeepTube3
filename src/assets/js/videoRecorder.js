@@ -20,7 +20,7 @@ const stopRecording = () => {
   videoRecorder.stop();
   recordBtn.removeEventListener("click", stopRecording);
   recordBtn.addEventListener("click", getVideo);
-  recordBtn.innerHTML = "Start recording";
+  recordBtn.innerHTML = "녹화하기";
   stream.getTracks().forEach(function(track) {
     track.stop();
   });
@@ -29,7 +29,7 @@ const stopRecording = () => {
 const startRecording = () => {
   videoRecorder = new MediaRecorder(streamObject);
   videoRecorder.start();
-  recordBtn.innerHTML = "녹화하기";
+  recordBtn.innerHTML = "녹화 멈추기";
   videoRecorder.addEventListener("dataavailable", handleVideoData); // data가 available하면 함수실행
   recordBtn.addEventListener("click", stopRecording);
 };
