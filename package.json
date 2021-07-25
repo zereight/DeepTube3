@@ -23,7 +23,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
     "@babel/runtime": "^7.6.3",
-    "autoprefixer": "^9.7.0",
+    "autoprefixer": "^9.8.6",
     "aws-sdk": "^2.561.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
