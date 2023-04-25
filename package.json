@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.1.5",
     "@babel/runtime": "^7.6.3",
     "autoprefixer": "^9.7.0",
-    "aws-sdk": "^2.561.0",
+    "aws-sdk": "^2.1354.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
