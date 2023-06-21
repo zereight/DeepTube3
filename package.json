@@ -49,21 +49,21 @@
     "multer-s3": "^2.9.0",
     "ngrok": "^3.2.5",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^6.0.1",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^5.0.1",
+    "passport-local-mongoose": "^6.0.0",
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.3",
     "py-loader": "^0.3.1",
     "python-shell": "^1.0.8",
     "rimraf": "^3.0.2",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^8.0.1",
     "spawn-rmrf": "^1.0.0",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -73,6 +73,6 @@
     "eslint-plugin-prettier": "^3.0.0",
     "nodemon": "^1.18.6",
     "prettier": "^1.15.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^4.0.0"
   }
 }
