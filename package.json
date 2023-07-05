@@ -21,7 +21,7 @@
     "@babel/core": "^7.1.5",
     "@babel/node": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-env": "^7.22.6",
     "@babel/runtime": "^7.6.3",
     "autoprefixer": "^9.7.0",
     "aws-sdk": "^2.561.0",
