@@ -49,7 +49,7 @@
     "multer-s3": "^2.9.0",
     "ngrok": "^3.2.5",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.2",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
@@ -59,10 +59,10 @@
     "pug": "^2.0.3",
     "py-loader": "^0.3.1",
     "python-shell": "^1.0.8",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.0.0",
     "sass-loader": "^7.1.0",
     "spawn-rmrf": "^1.0.0",
-    "webpack": "^4.25.1",
+    "webpack": "^5.1.1",
     "webpack-cli": "^3.1.2"
   },
   "devDependencies": {
