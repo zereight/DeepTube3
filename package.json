@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.6.4",
+    "@babel/cli": "^7.12.0",
     "@babel/core": "^7.1.5",
     "@babel/node": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
@@ -49,7 +49,7 @@
     "multer-s3": "^2.9.0",
     "ngrok": "^3.2.5",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^5.0.0",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
