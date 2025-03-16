@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.1.5",
+    "@babel/core": "^7.26.10",
     "@babel/node": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
